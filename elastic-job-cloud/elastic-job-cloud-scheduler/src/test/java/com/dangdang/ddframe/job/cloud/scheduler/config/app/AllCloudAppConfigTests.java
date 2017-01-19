@@ -15,23 +15,15 @@
  * </p>
  */
 
-package com.dangdang.ddframe.job.lite.spring.fixture;
+package com.dangdang.ddframe.job.cloud.scheduler.config.app;
 
-import com.dangdang.ddframe.job.api.ShardingContext;
-import com.dangdang.ddframe.job.api.simple.SimpleJob;
-import lombok.Getter;
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
 
-public class FooSimpleElasticJob implements SimpleJob {
-    
-    @Getter
-    private static volatile boolean completed;
-    
-    @Override
-    public void execute(final ShardingContext shardingContext) {
-        completed = true;
-    }
-    
-    public static void reset() {
-        completed = false;
-    }
+@RunWith(Suite.class)
+@Suite.SuiteClasses({
+        CloudAppConfigurationNodeTest.class,
+        CloudAppConfigurationServiceTest.class
+    })
+public final class AllCloudAppConfigTests {
 }
